@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(165, 177, 198);
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  padding: 10px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  box-shadow: 3px 5px 10px 0px rgba(70, 70, 70, 0.309);
+}
+
+form div {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  border: 1px solid rgb(182, 214, 255);
+  border-radius: 4px;
+}
+
+form .form-input:focus-within {
+  outline: 1.5px solid rgb(187, 216, 255);
+}
+
+.bx {
+  padding: 8px;
+  border-right: 1px solid rgb(182, 214, 255);
+  color: rgb(155, 197, 253);
+}
+
+input {
+  padding: 5px;
+  width: 200px;
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(106, 106, 106, 0.826);
+}
+
+.btn {
+  margin-top: 10px;
+  border-radius: 4px;
+  padding: 10px;
+  width: 240px;
+  background-color: rgb(182, 214, 255);
+  font-weight: bold;
+  box-shadow: 1px 2px 5px 0px rgba(70, 70, 70, 0.309);
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(195, 221, 255);
+}
+.btn:active {
+  box-shadow: 0 0 0 rgba(70, 70, 70, 0.309);
+}
+
+a {
+  text-decoration: none;
+  color: rgb(155, 197, 253);
+}
+
+hr {
+  width: 80%;
+  color: rgba(155, 197, 253, 0.144);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.solicitud {
+  border: none;
+  font-size: 0.6rem;
+  width: 77%;
+}
+
+.solucitud:focus-within {
+  outline: none;
+}
+#req {
+  width: fit-content;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+@media all and (min-width:300px) {
+  form{
+    max-width: 360px;
+    padding: 40px;
+  }
+}
