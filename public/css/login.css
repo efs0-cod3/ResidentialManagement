@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +13,9 @@ body {
 }
 
 main {
+ background-size: cover;
+  background-image: url(../images/building.jpg);
+  background-position-x: center;
   padding: 10px;
   height: 100vh;
   display: flex;
@@ -29,7 +33,6 @@ main {
 }
 
 form {
-
   background-color: white;
   padding: 20px;
   border-radius: 8px;

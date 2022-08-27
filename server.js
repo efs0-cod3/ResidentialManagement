@@ -14,9 +14,9 @@ const passport = require('passport')
 // passport config
 require('./config/passport')(passport)
 
-const reportsRouter = require('./routers/reports')
-const usersRouter = require('./routers/users')
-const indexRouter = require('./routers/index')
+const reportsRouter = require('./controller/reports')
+const usersRouter = require('./controller/users')
+const indexRouter = require('./controller/index')
 
 app.use(cors()) // cross origin sharing
 app.use(express.json())

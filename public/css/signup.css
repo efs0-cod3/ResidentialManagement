@@ -12,6 +12,9 @@ body {
 }
 
 main {
+  background-size: cover;
+  background-image: url(../images/building.jpg);
+  background-position-x: center;
   padding: 10px;
   height: 100vh;
   display: flex;

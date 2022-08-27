@@ -7,6 +7,10 @@ const ReportSchema = new Schema({
   reportContent: {
     type: String
   },
+  status: {
+    type: String,
+    default: 'processing'
+  },
   date: {
     type: String,
     default: new Date()

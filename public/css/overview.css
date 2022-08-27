@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
+:root {
+  --process: #ffa200;
+  --solved: #09ff00;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -51,6 +58,9 @@ nav {
   font-weight: 700;
   border-radius: 10px;
   border: none;
+  border: rgb(182, 214, 255) solid 2px;
+  color: white;
+
 }
 
 .table-btns {
@@ -103,15 +113,59 @@ th {
   padding: 5px 10px;
 }
 
-td > button {
-  padding: 2px;
+.status-container{
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
-td > button:hover {
-  border-radius: 4px;
-  padding: 2px;
-
+.circle {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 5px;
 }
+
+.status {
+  border: solid 2px transparent;
+  border-radius: 16px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+}
+
+.status-process{
+  border-color: var(--process) ;
+  color:var(--process);
+}
+
+.circle-process{
+  background: var(--process);
+}
+.circle-solved{
+  background: var(--solved);
+}
+.status-solved{
+  border-color: var(--solved) ;
+  color:var(--solved);
+}
+
+.reportBtn {
+  background: white;
+  border: rgb(182, 214, 255) solid 2px;
+  color: rgb(182, 214, 255);
+  transition: all ease-in .8s;
+  }
+  
+  .reportBtn:hover {
+    color: white;
+    border: rgb(255, 255, 255) solid 2px;
+  transition: all ease-out .5s;
+    
+  }
 
 .report-modal {
   position: absolute;
@@ -133,7 +187,7 @@ td > button:hover {
   flex-direction: column;
   padding: 20px;
   position: relative;
-  top: 250px;
+  top: 150px;
   left: 40px;
   width: 300px;
   max-width: 370px;
@@ -143,27 +197,39 @@ td > button:hover {
 
 .form-title {
   width: 95%;
-  margin: 10px;
-  padding: 5px;
-  border-radius: 5px;
+  margin: 0;
+  padding: 10px;
   border: none;
   outline: none;
+  border-radius: 0 5px 5px 0 ;
+  border-left: solid rgb(187, 216, 255);
 }
 
-.form-title:focus {
+.in_container, .text_container{
+  display: flex;
+  align-items: center;
+  background-color: white;
+border-radius: 5px;
+margin: 10px;
+}
+
+.in_container:focus-within {
   outline: solid rgb(187, 216, 255);
 }
 
 textarea {
   border-radius: 5px;
   border: none;
-  padding: 5px;
+  padding: 10px;
   outline: none;
+  border-left: solid rgb(187, 216, 255);
+  border-radius: 0 5px 5px 0;
 }
 
-textarea:focus {
+.text_container:focus-within {
   outline: solid rgb(187, 216, 255);
 }
+
 
 .form-btns {
   margin: 10px;
@@ -186,6 +252,7 @@ textarea:focus {
   background-color: rgb(182, 214, 255);
   font-weight: 700;
   cursor: pointer;
+  color: white;
 }
 
 #enviar:hover {
@@ -200,10 +267,36 @@ textarea:focus {
     display:none;
   }
 
-.view:hover {
+  .view {
+   padding: 2px 4px;
+  font-weight: bold;
+  border: solid 2px rgb(182, 214, 255);
   border-radius: 8px;
-}
+  color: rgb(182, 214, 255);
+  background: white;
+  box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
+  }
+  
+  .view:hover {
+   padding: 2px 4px;
+  background: rgb(182, 214, 255);
+  color: white;
+  border-color: whitesmoke;
+  box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
+  transition: all ease-in .2s;
+  }
 
+  .view:active{
+  box-shadow: 0px 0px 0px rgba(79, 79, 79, 0.5);
+  transition: all ease-in-out .2s;
+  }
+
+
+
+.bx{
+  color: rgb(182, 214, 255);
+  padding: 10px;
+}
 
 .close-modal {
   background: rgb(255, 119, 119);
@@ -219,6 +312,10 @@ textarea:focus {
 }
 
 @media all and (min-width: 400px) {
+.status-container{
+  display:flex;
+}
+
   .report-modal {
     width: 100vw;
     left: 2290px;
@@ -227,8 +324,8 @@ textarea:focus {
   .report-modal form {
     position: relative;
     top: 150px;
-    left: 25%;
-    width: 50%;
+    left: 40%;
+    width: fit-content;
     max-width: 60%;
     transition: all ease-in-out 2s;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.252);
@@ -236,8 +333,8 @@ textarea:focus {
 
   .form-title {
     width: 100%;
-    margin: 10px 0;
-    padding: 5px;
+    margin: 0;
+    padding: 10px;
   }
 
   textarea {

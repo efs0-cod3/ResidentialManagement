@@ -11,6 +11,7 @@ reportRouter.get('/overview', ensureAuthenticated, (req, response) => {
   Report.find({})
     .then((reports) => {
       response.render('overview', {
+        name: req.user.name,
         reports
       })
     })
