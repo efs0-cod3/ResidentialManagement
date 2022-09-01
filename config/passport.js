@@ -7,11 +7,11 @@ const User = require('../models/User')
 module.exports = function (passport) {
   passport.use(
     new LocalStrategy({ usernameField: 'email' }, (email, passwordHash, done) => {
-      User.findOne({ email })
+      User.findOne({ email: email.toLowerCase() })
         .then((user) => {
           if (!user) {
             return done(null, false, {
-              message: 'That email is not registered'
+              message: `Email ${email} not found`
             })
           }
           // match password
@@ -21,7 +21,7 @@ module.exports = function (passport) {
             if (isMatch) {
               return done(null, user)
             } else {
-              return done(null, false, { message: 'password incorrect' })
+              return done(null, false, { message: 'Invalid email or password' })
             }
           })
         })

@@ -2,10 +2,8 @@
 
 :root {
   --process: #ffa200;
-  --solved: #09ff00;
+  --solved: #05a400;
 }
-
-
 
 * {
   margin: 0;
@@ -32,7 +30,7 @@ main {
   margin-bottom: 20px;
 }
 
-button{
+button {
   cursor: pointer;
 }
 nav {
@@ -60,7 +58,6 @@ nav {
   border: none;
   border: rgb(182, 214, 255) solid 2px;
   color: white;
-
 }
 
 .table-btns {
@@ -71,6 +68,13 @@ nav {
   box-shadow: 1px 2px 5px 0px rgba(70, 70, 70, 0.309);
   background-color: rgb(182, 214, 255);
   font-weight: 700;
+}
+
+#row{
+  cursor: pointer;
+}
+#row:hover{
+  background-color:   rgba(0, 51, 168, 0.31);
 }
 
 button:hover {
@@ -113,7 +117,7 @@ th {
   padding: 5px 10px;
 }
 
-.status-container{
+.status-container {
   display: none;
   justify-content: center;
   align-items: center;
@@ -137,35 +141,34 @@ th {
   gap: 5px;
 }
 
-.status-process{
-  border-color: var(--process) ;
-  color:var(--process);
+.status-process {
+  border-color: var(--process);
+  color: var(--process);
 }
 
-.circle-process{
+.circle-process {
   background: var(--process);
 }
-.circle-solved{
+.circle-solved {
   background: var(--solved);
 }
-.status-solved{
-  border-color: var(--solved) ;
-  color:var(--solved);
+.status-solved {
+  border-color: var(--solved);
+  color: var(--solved);
 }
 
 .reportBtn {
   background: white;
   border: rgb(182, 214, 255) solid 2px;
   color: rgb(182, 214, 255);
-  transition: all ease-in .8s;
-  }
-  
-  .reportBtn:hover {
-    color: white;
-    border: rgb(255, 255, 255) solid 2px;
-  transition: all ease-out .5s;
-    
-  }
+  transition: all ease-in 0.8s;
+}
+
+.reportBtn:hover {
+  color: white;
+  border: rgb(255, 255, 255) solid 2px;
+  transition: all ease-out 0.5s;
+}
 
 .report-modal {
   position: absolute;
@@ -176,6 +179,36 @@ th {
   width: 100vh;
   left: 400px;
   transition: all ease-in-out 1s;
+}
+
+.view-report-modal {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  width: 100vh;
+  right: -1000px;
+  transition: all ease-in-out 1s;
+}
+
+.view-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#view a{
+  text-decoration: none;
+  color: rgb(182, 214, 255);
+}
+#view a:hover{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
 .report-modal form {
@@ -201,16 +234,17 @@ th {
   padding: 10px;
   border: none;
   outline: none;
-  border-radius: 0 5px 5px 0 ;
+  border-radius: 0 5px 5px 0;
   border-left: solid rgb(187, 216, 255);
 }
 
-.in_container, .text_container{
+.in_container,
+.text_container {
   display: flex;
   align-items: center;
   background-color: white;
-border-radius: 5px;
-margin: 10px;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 .in_container:focus-within {
@@ -229,7 +263,6 @@ textarea {
 .text_container:focus-within {
   outline: solid rgb(187, 216, 255);
 }
-
 
 .form-btns {
   margin: 10px;
@@ -256,44 +289,46 @@ textarea {
 }
 
 #enviar:hover {
-    background-color: rgb(195, 221, 255);
-  }
-  
+  background-color: rgb(195, 221, 255);
+}
+
 #enviar:active {
-    box-shadow: 0 0 0 rgba(70, 70, 70, 0.309);
-  }
+  box-shadow: 0 0 0 rgba(70, 70, 70, 0.309);
+}
 
 .date {
-    display:none;
-  }
+  display: none;
+}
 
-  .view {
-   padding: 2px 4px;
+.view {
+  padding: 2px 4px;
   font-weight: bold;
   border: solid 2px rgb(182, 214, 255);
   border-radius: 8px;
   color: rgb(182, 214, 255);
   background: white;
   box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
-  }
-  
-  .view:hover {
-   padding: 2px 4px;
+}
+
+.view:hover {
+  padding: 2px 4px;
   background: rgb(182, 214, 255);
   color: white;
   border-color: whitesmoke;
   box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
-  transition: all ease-in .2s;
-  }
+  transition: all ease-in 0.2s;
+}
 
-  .view:active{
+.view:active {
   box-shadow: 0px 0px 0px rgba(79, 79, 79, 0.5);
-  transition: all ease-in-out .2s;
-  }
+  transition: all ease-in-out 0.2s;
+}
 
+.no_reports {
+  width: 100%;
+}
 
-
-.bx{
+.bx {
   color: rgb(182, 214, 255);
   padding: 10px;
 }
@@ -311,10 +346,23 @@ textarea {
   font-size: 1.4rem;
 }
 
-@media all and (min-width: 400px) {
-.status-container{
-  display:flex;
+.view-close-modal {
+  background: rgb(255, 119, 119);
+  border: none;
+  color: white;
+  position: absolute;
+  padding: 5px 10px;
+  left: 580px;
+  top: 10px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 1.4rem;
 }
+
+@media all and (min-width: 400px) {
+  .status-container {
+    display: flex;
+  }
 
   .report-modal {
     width: 100vw;
@@ -324,7 +372,7 @@ textarea {
   .report-modal form {
     position: relative;
     top: 150px;
-    left: 40%;
+    left: 36%;
     width: fit-content;
     max-width: 60%;
     transition: all ease-in-out 2s;
@@ -341,17 +389,17 @@ textarea {
     width: 100%;
   }
 
-  .close-modal{
+  .close-modal {
     left: 90%;
     top: 18px;
   }
 
-table{
+  table {
     width: 90%;
     text-align: center;
-}
+  }
 
-.date{
-  display: block;
-}
+  .date {
+    display: block;
+  }
 }

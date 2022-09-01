@@ -10,7 +10,7 @@
 
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/css/overview.css" />
-    <title>RM - Report</title>
+    <title>RM - Reports Dashboard</title>
   </head>
   <body>
     <nav>
@@ -30,21 +30,26 @@
       <table class="content-table">
         <thead>
           <tr>
+            <th>Id</th>
             <th>Title</th>
             <th>Description</th>
             <th class="status-container">Status</th>
-            <th>View</th>
           </tr>
         </thead>
         <tbody>
-          <% for( let i = 0; i < reports.length; i++ ) { %>
+          <% if (reports.length == 0) { %>
             <tr>
+              <td colspan='4' class="no_reports"><h2>No Reports</h2></td>
+            </tr>
+            <% } else {%>
+          <% for( let i = 0; i < reports.length; i++ ) { %>
+            <tr id="row" data-id=<%= reports[i]._id %>>
+              <td><%= i+1 %></td>
             <td><%= reports[i].title %></td>
             <td><%= reports[i].reportContent.substring(0,7) + '...' %></td>
-            <td class="status-container"><span class="status status-process"><span class="circle circle-process"></span>processing</span></td>
-
-            <td><button class="view">View</button></td>
+            <td class="status-container"><span id="sts" class="status status-process"><span class="circle circle-process"></span><%= reports[i].status %></span></td>
             </tr>
+          <% } %>
           <% } %>
 
         </tbody>

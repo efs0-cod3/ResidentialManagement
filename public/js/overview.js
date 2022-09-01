@@ -1,15 +1,47 @@
 
 // report modal section
 const cReportBtn = document.querySelector('#crearReporte')
-const modal = document.querySelector('.report-modal')
+const createReportModal = document.querySelector('.report-modal')
 const closeModal = document.querySelector('.close-modal')
 
 cReportBtn.addEventListener('click', () => {
-  modal.style.left = '0'
-  modal.style.opacity = '1'
+  createReportModal.style.left = '0'
+  createReportModal.style.opacity = '1'
 })
 closeModal.addEventListener('click', () => {
-  modal.style.left = '2000px'
-  modal.style.opacity = '0'
+  createReportModal.style.left = '2000px'
+  createReportModal.style.opacity = '0'
 })
-// report modal section
+// closed report modal section
+
+// view report section
+const viewReport = document.querySelectorAll('#row')
+
+Array.from(viewReport).forEach((el) => {
+  el.addEventListener('click', getReport)
+})
+
+function getReport () {
+  const reportId = this.dataset.id
+  window.location.href = `/viewReport/${reportId}`
+}
+
+// status
+const stts = document.querySelectorAll('.status')
+
+function stats () {
+  Array.from(stts).forEach(el => {
+    if (el.innerText === 'processing') {
+      el.classList.remove('status-solved')
+      el.firstElementChild.classList.remove('circle-solved')
+      el.firstElementChild.classList.add('circle-process')
+      el.classList.add('status-process')
+    } else if (el.innerText === 'solved') {
+      el.classList.remove('status-process')
+      el.classList.add('status-solved')
+      el.firstElementChild.classList.remove('circle-process')
+      el.firstElementChild.classList.add('circle-solved')
+    }
+  })
+}
+stats()

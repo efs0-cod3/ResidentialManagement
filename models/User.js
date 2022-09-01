@@ -6,10 +6,15 @@ const UserSchema = new Schema({
     type: String
   },
   email: {
-    type: String
+    type: String,
+    unique: true
   },
   passwordHash: {
     type: String
+  },
+  role: {
+    type: String,
+    default: 'basic'
   },
   reports: [{
     type: Schema.Types.ObjectId,
