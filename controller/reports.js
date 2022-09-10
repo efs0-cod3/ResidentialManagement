@@ -1,6 +1,6 @@
 require('dotenv').config() // as early as posible
 const reportRouter = require('express').Router()
-const ObjectId = require('mongodb').ObjectID
+// const ObjectId = require('mongodb').ObjectID
 const Report = require('../models/Report')
 // const ROLE = require('../config/roles')
 const User = require('../models/User')
@@ -13,6 +13,7 @@ reportRouter.get('/', ensureAuthenticated, (request, response) => {
       response.render('overview', {
         userId: request.user._id,
         name: request.user.name,
+        role: request.user.role,
         reports
       })
     })
@@ -52,12 +53,13 @@ reportRouter.post('/overview', ensureAuthenticated, async (request, response) =>
   }
 })
 
-reportRouter.get('/viewReport/:id', async (request, response) => {
+reportRouter.get('/viewReport/:id', ensureAuthenticated, async (request, response) => {
   const { id } = request.params
 
   try {
-    const report = await Report.findById({ _id: ObjectId(id) })
+    const report = await Report.findById({ _id: id })
     response.render('viewReport', {
+      role: request.user.role,
       report
     })
   } catch (error) {

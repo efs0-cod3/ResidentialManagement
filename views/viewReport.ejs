@@ -23,20 +23,28 @@
     </nav>
     <main>
       <div class="ind">
-
         <h1><%= report.title %></h1>
         <h3>Report content:</h3>
               <p><%= report.reportContent %></p>
               <div class="status-container viewport" data-id=<%= report._id %>>
-                <form id="form" action="/reports/viewReport/<%= report._id %>?_method=PUT" method="POST">
-                  <select id="select" class="status status-process" name="status">
-                    <option id="op1" value="processing">Processing</option>
-                    <option id="op2" value="solved">Solved</option>
-                    </select>
-                    <button id="update" type="submit" class="view">Update status</button>
-                </form>
+                <% if (role == 'admin') { %>
+                  <form id="form" action="/reports/viewReport/<%= report._id %>?_method=PUT" method="POST">
+                    <select id="select" class="status status-process" name="status">
+                      <option id="op1" value="processing">Processing</option>
+                      <option id="op2" value="solved">Solved</option>
+                      </select>
+                      <button id="update" type="submit" class="view">Update status</button>
+                  </form>
+                <% } else {%>
+                 <td class="status-container"><span id="sts" class="status status-process"><span class="circle circle-process"></span><%= report.status %></span></td>
+
+                <% } %>
               </div>
     </main>
-    <script src="/js/admin.js"></script>
+    <% if (role == 'admin') { %>
+      <script src="/js/admin.js"></script>
+    <% } else {%>
+      <script src="/js/basicRole.js"></script>
+      <% } %>
   </body>
 </html>

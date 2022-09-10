@@ -12,7 +12,6 @@ function stValue () {
     selection.classList.add('status-solved')
   }
 }
-
 // const updateBtn = document.getElementById('update')
 // updateBtn.addEventListener('click', update)
 

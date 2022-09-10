@@ -29,12 +29,15 @@
 
       <table class="content-table">
         <thead>
-          <tr>
+
             <th>Id</th>
             <th>Title</th>
             <th>Description</th>
             <th class="status-container">Status</th>
-          </tr>
+            <% if (role == 'admin') { %>
+             <th>Delete</th>
+            <% } %>
+
         </thead>
         <tbody>
           <% if (reports.length == 0) { %>
@@ -48,6 +51,12 @@
             <td><%= reports[i].title %></td>
             <td><%= reports[i].reportContent.substring(0,7) + '...' %></td>
             <td class="status-container"><span id="sts" class="status status-process"><span class="circle circle-process"></span><%= reports[i].status %></span></td>
+            <% if (role == 'admin') { %>
+              <td>
+                <form>
+                  <button type="submit" id='trash' class='tbtn bx bx-trash'></button>
+                </form></td>
+             <% } %>
             </tr>
           <% } %>
           <% } %>
