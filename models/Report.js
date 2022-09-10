@@ -2,17 +2,19 @@ const { model, Schema } = require('mongoose')
 
 const ReportSchema = new Schema({
   title: {
-    type: String
+    type: String,
+    required: true
   },
   reportContent: {
-    type: String
+    type: String,
+    required: true
   },
   status: {
     type: String,
     default: 'processing'
   },
   date: {
-    type: String,
+    type: Date,
     default: new Date()
   },
   user: {

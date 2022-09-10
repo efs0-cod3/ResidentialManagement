@@ -6,10 +6,8 @@ const Report = require('../models/Report')
 const User = require('../models/User')
 const { ensureAuthenticated } = require('../config/auth')
 
-// const userExtractor = require('../middleWare/userExtractor')
-
 // render on overview ejs
-reportRouter.get('/overview', ensureAuthenticated, (request, response) => {
+reportRouter.get('/', ensureAuthenticated, (request, response) => {
   Report.find({})
     .then((reports) => {
       response.render('overview', {
@@ -48,7 +46,7 @@ reportRouter.post('/overview', ensureAuthenticated, async (request, response) =>
 
     user.reports = user.reports.concat(savedReport._id)
     await user.save()
-    response.redirect('/overview')
+    response.redirect('/reports')
   } catch (error) {
     console.log(error)
   }
@@ -64,6 +62,20 @@ reportRouter.get('/viewReport/:id', async (request, response) => {
     })
   } catch (error) {
     console.log(error)
+  }
+})
+// developing
+reportRouter.put('/viewReport/:id', async (request, response) => {
+  console.log(request.params.id)
+  try {
+    await Report.findOneAndUpdate({ _id: request.params.id },
+      {
+        $set: { status: request.body.status }
+      })
+    console.log('updated')
+    response.redirect('/reports')
+  } catch (error) {
+    console.error(error)
   }
 })
 

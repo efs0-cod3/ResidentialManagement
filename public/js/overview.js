@@ -23,7 +23,7 @@ Array.from(viewReport).forEach((el) => {
 
 function getReport () {
   const reportId = this.dataset.id
-  window.location.href = `/viewReport/${reportId}`
+  window.location.href = `reports/viewReport/${reportId}`
 }
 
 // status

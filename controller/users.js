@@ -92,7 +92,7 @@ usersRouter.post('/signup', (request, response) => {
 
 usersRouter.post('/login', (req, res, next) => {
   passport.authenticate('local', {
-    successRedirect: '/overview',
+    successRedirect: '/reports',
     failureRedirect: '/users/login',
     failureFlash: true
   })(req, res, next)

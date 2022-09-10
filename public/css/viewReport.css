@@ -20,13 +20,12 @@ body {
 
 main {
   padding: 20px;
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-
 
 #form{
   display: flex;
@@ -84,7 +83,10 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 gap: 10px;
-height: 100vh;
+border-radius: 8px;
+border: 4px rgb(182, 214, 255) solid;
+padding: 40px;
+box-shadow: 1px 2px 5px 0px rgba(70, 70, 70, 0.309);
 }
 
 #row{
@@ -135,12 +137,9 @@ th {
 }
 
 .status-container {
-  display: none;
   justify-content: center;
   align-items: center;
 }
-
-
 
 .circle {
   width: 8px;
@@ -338,7 +337,7 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
 }
 
 .view:hover {
-  padding: 2px 4px;
+  padding: 4px 8px;
   background: rgb(182, 214, 255);
   color: white;
   border-color: whitesmoke;
@@ -391,42 +390,5 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
     display: flex;
   }
 
-  .report-modal {
-    width: 100vw;
-    left: 2290px;
-  }
 
-  .report-modal form {
-    position: relative;
-    top: 150px;
-    left: 36%;
-    width: fit-content;
-    max-width: 60%;
-    transition: all ease-in-out 2s;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.252);
-  }
-
-  .form-title {
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-  }
-
-  textarea {
-    width: 100%;
-  }
-
-  .close-modal {
-    left: 90%;
-    top: 18px;
-  }
-
-  table {
-    width: 90%;
-    text-align: center;
-  }
-
-  .date {
-    display: block;
-  }
 }

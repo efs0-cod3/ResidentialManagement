@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/overview.css" />
+    <link rel="stylesheet" href="/css/viewReport.css" />
     <title>RM - Report</title>
   </head>
   <body>
@@ -21,19 +21,22 @@
         <li><a href="/users/logout"><button class="nav-btn" id="Log-out">Logout</button></a></li>
       </ul>
     </nav>
-    <div>
-      <h1><%= report.title %></h1>
-            <p><%= report.reportContent %></p>
-            <form action="/viewReport" method="put"></form>
-            <div class="status-container">
-              <select id="select" class="status status-process">
-              <option id="op1" value="processing">Processing</option>
-              <option id="op2" value="solved">Solved</option>
-            </select>
-            </div>
-            <button class="view">Update Status</button>
-    </div>
-    <script src="/js/overview.js"></script>
+    <main>
+      <div class="ind">
+
+        <h1><%= report.title %></h1>
+        <h3>Report content:</h3>
+              <p><%= report.reportContent %></p>
+              <div class="status-container viewport" data-id=<%= report._id %>>
+                <form id="form" action="/reports/viewReport/<%= report._id %>?_method=PUT" method="POST">
+                  <select id="select" class="status status-process" name="status">
+                    <option id="op1" value="processing">Processing</option>
+                    <option id="op2" value="solved">Solved</option>
+                    </select>
+                    <button id="update" type="submit" class="view">Update status</button>
+                </form>
+              </div>
+    </main>
     <script src="/js/admin.js"></script>
   </body>
 </html>

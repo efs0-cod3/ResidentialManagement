@@ -10,6 +10,8 @@ const bodyParser = require('body-parser')
 const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
+const logger = require('morgan')
+const methodOverride = require('method-override')
 
 // passport config
 require('./config/passport')(passport)
@@ -25,6 +27,9 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
+app.use(logger('dev'))
+// Use forms for put / delete
+app.use(methodOverride('_method'))
 
 // express session
 app.use(session({
@@ -51,8 +56,7 @@ app.use((req, res, next) => {
 // routes
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.use('/', reportsRouter)
-// app.use('/login', loginRouter)
+app.use('/reports', reportsRouter)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`app listening on port ${PORT}!`))
