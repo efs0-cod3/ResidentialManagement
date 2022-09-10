@@ -16,11 +16,14 @@ body {
   background-color: white;
   font-family: "Inter", sans-serif;
   overflow: hidden;
+  background-size: cover;
+  background-image: url(../images/building.jpg);
+  background-position-x: center;
+  height: 100vh;
 }
 
 main {
   padding: 20px;
-  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +39,11 @@ main {
 
 .welcome {
   margin-bottom: 20px;
+color: white;
+background: rgb(165, 177, 198);
+padding: 10px 20px;
+border-radius: 40px;
+border: white solid;
 }
 
 button {
@@ -91,7 +99,7 @@ height: 100vh;
   cursor: pointer;
 }
 #row:hover{
-  background-color:   rgba(0, 51, 168, 0.31);
+  background-color:   rgb(79, 101, 151);
 }
 
 button:hover {
@@ -130,27 +138,33 @@ ul {
   border-collapse: collapse;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 0.4);
 }
 
 th {
+  color: white;
   background-color: rgb(165, 177, 198);
 }
 
 tbody tr {
-  border-bottom: 0.5px solid rgba(165, 177, 198, 0.534);
+  background-color: #4c645e;
+
+  border-bottom: 0.5px solid rgba(165, 177, 198, 1);
 }
 
 tbody tr:nth-of-type(even) {
-  background-color: rgba(198, 214, 242, 0.431);
+  background-color: rgb(107, 121, 145);
 }
 
 tbody tr:last-of-type {
+  background-color: rgb(104, 109, 117);
+  
   border-bottom: 2px solid rgb(165, 177, 198);
 }
 td,
 th {
   padding: 5px 10px;
+  font-weight: bold;
 }
 
 .status-container {
@@ -372,6 +386,7 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
 
 .no_reports {
   width: 100%;
+  background: white;
 }
 
 .bx {
@@ -441,8 +456,10 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
   }
 
   table {
-    width: 90%;
+    width: 80%;
     text-align: center;
+  box-shadow: 1px 2px 5px 0px rgba(70, 70, 70, 0.309);
+
   }
 
   .date {

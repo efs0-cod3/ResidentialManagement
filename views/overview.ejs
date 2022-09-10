@@ -42,7 +42,7 @@
         <tbody>
           <% if (reports.length == 0) { %>
             <tr>
-              <td colspan='4' class="no_reports"><h2>No Reports</h2></td>
+              <td colspan='5' class="no_reports"><h2>No Reports</h2></td>
             </tr>
             <% } else {%>
           <% for( let i = 0; i < reports.length; i++ ) { %>
@@ -53,9 +53,10 @@
             <td class="status-container"><span id="sts" class="status status-process"><span class="circle circle-process"></span><%= reports[i].status %></span></td>
             <% if (role == 'admin') { %>
               <td>
-                <form>
+                <form action="/reports/deleteReport/<%= reports[i]._id %>?_method=DELETE" method="POST">
                   <button type="submit" id='trash' class='tbtn bx bx-trash'></button>
-                </form></td>
+                </form>
+              </td>
              <% } %>
             </tr>
           <% } %>

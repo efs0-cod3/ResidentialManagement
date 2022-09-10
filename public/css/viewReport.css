@@ -16,6 +16,9 @@ body {
   background-color: white;
   font-family: "Inter", sans-serif;
   overflow: hidden;
+  background-size: cover;
+  background-image: url(../images/building.jpg);
+  background-position-x: center;
 }
 
 main {
@@ -87,6 +90,7 @@ border-radius: 8px;
 border: 4px rgb(182, 214, 255) solid;
 padding: 40px;
 box-shadow: 1px 2px 5px 0px rgba(70, 70, 70, 0.309);
+background: white;
 }
 
 #row{

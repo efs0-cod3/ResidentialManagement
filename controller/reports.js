@@ -81,4 +81,16 @@ reportRouter.put('/viewReport/:id', async (request, response) => {
   }
 })
 
+reportRouter.delete('/deleteReport/:id', async (request, response) => {
+  console.log(request.params.id)
+  try {
+    // const report = Report.findById({ _id: request.params.id })
+    await Report.remove({ _id: request.params.id })
+    console.log('deleted')
+    response.redirect('/reports')
+  } catch (error) {
+    response.redirect('/reports')
+  }
+})
+
 module.exports = reportRouter
