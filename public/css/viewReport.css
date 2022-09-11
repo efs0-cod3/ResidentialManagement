@@ -70,6 +70,22 @@ nav {
   color: white;
 }
 
+.bToReport {
+  margin-left: 10px;
+  padding: 8px 20px;
+  box-shadow: 1px 2px 5px 0px rgba(70, 70, 70, 0.309);
+  background-color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  border: rgb(182, 214, 255) solid 2px;
+  color: rgb(182, 214, 255);
+}
+.bToReport:hover{
+  color: white;
+  transition: all .5s;
+}
+
 .table-btns {
   padding: 8px 20px;
   border-radius: 10px;

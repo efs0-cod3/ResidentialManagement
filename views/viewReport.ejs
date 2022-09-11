@@ -13,14 +13,7 @@
     <title>RM - Report</title>
   </head>
   <body>
-    <nav>
-      <div class="logo">
-        <img class="rm" src="/images/rmnotext.png" alt="" />
-      </div>
-      <ul class="log-btns">
-        <li><a href="/users/logout"><button class="nav-btn" id="Log-out">Logout</button></a></li>
-      </ul>
-    </nav>
+    <%- include('partials/viewReportNavbar'); %>
     <main>
       <div class="ind">
         <h1><%= report.title %></h1>
