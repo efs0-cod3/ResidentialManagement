@@ -4,8 +4,9 @@ const User = require('../models/User')
 const passport = require('passport')
 
 // is authenticated
-const { forwardAuthenticated } = require('../config/auth')
+// const { forwardAuthenticated } = require('../config/auth')
 
+// reports
 usersRouter.get('/', async (request, response) => {
   const users = await User.find({}).populate('reports', {
     title: 1,
@@ -15,12 +16,46 @@ usersRouter.get('/', async (request, response) => {
   response.json(users)
 })
 
-usersRouter.get('/login', forwardAuthenticated, (req, res) => {
-  res.render('login')
+// Log In
+usersRouter.get('/login', (request, response) => {
+  if (request.session.id || request.user) {
+    response.redirect('/reports')
+  }
+  response.render('login', {
+    title: 'Login'
+  })
 })
 
-usersRouter.get('/signup', forwardAuthenticated, (req, res) => {
-  res.render('signup')
+usersRouter.post('/login', (req, res, next) => {
+  // passport.authenticate('local', {
+  //   successRedirect: req.session.returnTo || '/reports',
+  //   failureRedirect: '/users/login',
+  //   failureFlash: true
+  // })(req, res, next)
+
+  console.log(`here ${req.session.id}`)
+  passport.authenticate('local', (err, user) => {
+    if (err) { return next(err) }
+    if (!user) {
+      req.flash('error_msg', 'Missing Credentials.')
+      return res.redirect('/login')
+    }
+    req.logIn(user, (err) => {
+      if (err) { return next(err) }
+      req.flash('success_msg', 'Success! You are logged in.')
+      res.redirect(req.session.returnTo || '/reports')
+    })
+  })(req, res, next)
+})
+
+// Sign up
+usersRouter.get('/signup', (request, response) => {
+  if (request.user) {
+    return response.redirect('/reports')
+  }
+  response.render('signup', {
+    title: 'Create Account'
+  })
 })
 
 usersRouter.post('/signup', (request, response) => {
@@ -90,22 +125,14 @@ usersRouter.post('/signup', (request, response) => {
   }
 })
 
-usersRouter.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/reports',
-    failureRedirect: '/users/login',
-    failureFlash: true
-  })(req, res, next)
-})
-
 // Logout
 usersRouter.get('/logout', (req, res, next) => {
   req.logout(function (err) {
     if (err) {
       return next(err)
     }
-    req.flash('success_msg', 'You are logged out')
-    res.redirect('../users/login')
+    req.session.destroy()
+    res.redirect('/login')
   })
 })
 

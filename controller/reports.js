@@ -4,10 +4,11 @@ const reportRouter = require('express').Router()
 const Report = require('../models/Report')
 // const ROLE = require('../config/roles')
 const User = require('../models/User')
-const { ensureAuthenticated } = require('../config/auth')
+const { ensureAuth } = require('../middleware/auth')
 
 // render on overview ejs
-reportRouter.get('/', ensureAuthenticated, (request, response) => {
+reportRouter.get('/', ensureAuth, (request, response) => {
+  // console.log(`here ${request.session.id}`)
   Report.find({})
     .then((reports) => {
       response.render('overview', {
@@ -20,7 +21,7 @@ reportRouter.get('/', ensureAuthenticated, (request, response) => {
     .catch((err) => console.error(err))
 })
 
-reportRouter.post('/overview', ensureAuthenticated, async (request, response) => {
+reportRouter.post('/overview', async (request, response) => {
   const {
     title,
     reportContent,
@@ -53,7 +54,7 @@ reportRouter.post('/overview', ensureAuthenticated, async (request, response) =>
   }
 })
 
-reportRouter.get('/viewReport/:id', ensureAuthenticated, async (request, response) => {
+reportRouter.get('/viewReport/:id', async (request, response) => {
   const { id } = request.params
 
   try {
@@ -85,7 +86,7 @@ reportRouter.delete('/deleteReport/:id', async (request, response) => {
   console.log(request.params.id)
   try {
     // const report = Report.findById({ _id: request.params.id })
-    await Report.remove({ _id: request.params.id })
+    await Report.deleteOne({ _id: request.params.id })
     console.log('deleted')
     response.redirect('/reports')
   } catch (error) {
