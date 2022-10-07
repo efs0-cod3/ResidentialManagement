@@ -3,10 +3,10 @@
 
 ## Description 
 
-Full-stack Residential Management system, where tenants and owners can submit reports about situations they are facing in their block, so the administrators can take action and update status of given report!
+Full-stack  [Residential Management system](residentialmanagement.cyclic.app), where tenants and owners can submit reports about situations they are facing in their block, so the administrators can take action and update status of given report!
 
 <p align='center'>
-<img src='./public/images/rmg.gif' alt="gift of the website">
+<a href="residentialmanagement.cyclic.app"><img src='./public/images/rmg.gif' alt="gift of the website"></a>
 </p>
 
 # My process
@@ -38,9 +38,13 @@ Ex:
 
 - Mongoose: Is a MongoDB object modeling tool designed to work in an asynchronous environment. Easiest to do certain stuff than with mongodb.
 
+## Recent updates
+
+- Roles available (sep - 1st - 2022)
+- Added image (optional) upload feature (Oct - 6th - 2022)
 ## Continue development
 
-Working to get roles available on the app so the administrators can update the status of any given report. 
+- Working on emailing on report updates 
 
 # Author
 
