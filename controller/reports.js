@@ -99,7 +99,9 @@ reportRouter.delete('/deleteReport/:id', async (request, response) => {
     const report = await Report.findById({ _id: request.params.id })
     console.log('rprt ' + report)
     // Delete image from cloudinary
-    if (report.cloudinaryId) await cloudinary.uploader.destroy(report.cloudinaryId)
+    if (report.cloudinaryId) {
+      await cloudinary.uploader.destroy(report.cloudinaryId)
+    }
     await Report.deleteOne({ _id: request.params.id })
     console.log('deleted')
     response.redirect('/reports')
