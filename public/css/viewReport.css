@@ -101,10 +101,9 @@ nav {
 flex-direction: column;
 justify-content: center;
 align-items: center;
-gap: 10px;
 border-radius: 8px;
 border: 4px rgb(182, 214, 255) solid;
-padding: 40px;
+padding: 20px 5px;
 box-shadow: 1px 2px 5px 0px rgba(70, 70, 70, 0.309);
 background: white;
 }
@@ -159,6 +158,7 @@ th {
 .status-container {
   justify-content: center;
   align-items: center;
+  margin-top: 5px;
 }
 
 .circle {
@@ -208,6 +208,12 @@ th {
   border: rgb(182, 214, 255) solid 2px;
   color: rgb(182, 214, 255);
   transition: all ease-in 0.8s;
+}
+
+.report-img {
+  width: 300px;
+  margin-top: 5px;
+  border-radius: 8px;
 }
 
 .reportBtn:hover {
@@ -410,5 +416,8 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
     display: flex;
   }
 
+  .ind {
+    padding: 40px;
+  }
 
 }
