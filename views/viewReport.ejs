@@ -19,6 +19,9 @@
         <h1><%= report.title %></h1>
         <h3>Report content:</h3>
               <p><%= report.reportContent %></p>
+              <% if (report.image) { %>
+                <img class="report-img" src="<%= report.image %> ">
+              <% } %>
               <div class="status-container viewport" data-id=<%= report._id %>>
                 <% if (role == 'admin') { %>
                   <form id="form" action="/reports/viewReport/<%= report._id %>?_method=PUT" method="POST">

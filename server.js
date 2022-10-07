@@ -61,15 +61,15 @@ app.use(passport.session())
 // Connect flash
 app.use(flash())
 
-app.use(function (req, res, next) {
-  console.log(req.session)
-  console.log('++++++++++++++')
-  console.log(req.session.id)
-  console.log('++++++++++++++')
-  console.log(req.user)
-  next()
-}
-)
+// app.use(function (req, res, next) {
+//   console.log(req.session)
+//   console.log('++++++++++++++')
+//   console.log(req.session.id)
+//   console.log('++++++++++++++')
+//   console.log(req.user)
+//   next()
+// }
+// )
 
 // global vars
 app.use((req, res, next) => {

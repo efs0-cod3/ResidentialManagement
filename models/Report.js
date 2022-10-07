@@ -9,6 +9,14 @@ const ReportSchema = new Schema({
     type: String,
     required: true
   },
+  image: {
+    type: String,
+    require: true
+  },
+  cloudinaryId: {
+    type: String,
+    require: true
+  },
   status: {
     type: String,
     default: 'processing'

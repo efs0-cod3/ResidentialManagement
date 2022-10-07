@@ -3,7 +3,10 @@ const reportRouter = require('express').Router()
 // const ObjectId = require('mongodb').ObjectID
 const Report = require('../models/Report')
 // const ROLE = require('../config/roles')
+const upload = require('../middleware/multer')
 const User = require('../models/User')
+const cloudinary = require('../middleware/cloudinary')
+
 const { ensureAuth } = require('../middleware/auth')
 
 // render on overview ejs
@@ -21,7 +24,7 @@ reportRouter.get('/', ensureAuth, (request, response) => {
     .catch((err) => console.error(err))
 })
 
-reportRouter.post('/overview', async (request, response) => {
+reportRouter.post('/overview', upload.single('file'), async (request, response) => {
   const {
     title,
     reportContent,
@@ -36,10 +39,15 @@ reportRouter.post('/overview', async (request, response) => {
     return
   }
 
+  // Upload image to cloudinary
+  const result = await cloudinary.uploader.upload(request.file.path)
+
   const newReport = new Report({
     title,
     reportContent,
     date,
+    cloudinaryId: result.public_id,
+    image: result.secure_url,
     user: user._id
   })
 

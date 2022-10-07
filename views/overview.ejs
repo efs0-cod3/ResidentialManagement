@@ -66,7 +66,7 @@
       </table>
     </main>
     <div class="report-modal">
-      <form action="reports/overview" method="POST">
+      <form action="reports/overview" enctype="multipart/form-data" method="POST">
         <div class="in_container">
           <i class='bx bxs-quote-single-right' ></i>
         <input class="form-title" type="text" placeholder="Title" id="title" name="title" />
@@ -81,6 +81,10 @@
           placeholder="Insert information..."
         ></textarea>
        </div>
+       <div class="file-cont">
+        <label for="imgUpload" class="form-label">Image</label>
+        <input type="file" class="form-control" id="imageUpload" name="file">
+      </div>
         <section class="form-btns">
           <input type="submit" name="" id="enviar" value="Send" />
         </section>
