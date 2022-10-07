@@ -40,16 +40,20 @@ reportRouter.post('/overview', upload.single('file'), async (request, response) 
   }
 
   // Upload image to cloudinary
-  const result = await cloudinary.uploader.upload(request.file.path)
 
   const newReport = new Report({
     title,
     reportContent,
     date,
-    cloudinaryId: result.public_id,
-    image: result.secure_url,
     user: user._id
   })
+
+  if (request.file) {
+    const result = await cloudinary.uploader.upload(request.file.path)
+
+    newReport.cloudinaryId = result.public_id
+    newReport.image = result.secure_url
+  }
 
   try {
     const savedReport = await newReport.save()
@@ -91,9 +95,11 @@ reportRouter.put('/viewReport/:id', async (request, response) => {
 })
 
 reportRouter.delete('/deleteReport/:id', async (request, response) => {
-  console.log(request.params.id)
   try {
-    // const report = Report.findById({ _id: request.params.id })
+    const report = await Report.findById({ _id: request.params.id })
+    console.log('rprt ' + report)
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(report.cloudinaryId)
     await Report.deleteOne({ _id: request.params.id })
     console.log('deleted')
     response.redirect('/reports')

@@ -10,12 +10,10 @@ const ReportSchema = new Schema({
     required: true
   },
   image: {
-    type: String,
-    require: true
+    type: String
   },
   cloudinaryId: {
-    type: String,
-    require: true
+    type: String
   },
   status: {
     type: String,
