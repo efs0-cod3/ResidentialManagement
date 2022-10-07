@@ -41,19 +41,21 @@ reportRouter.post('/overview', upload.single('file'), async (request, response) 
 
   // Upload image to cloudinary
 
-  const newReport = new Report({
+  const report = {
     title,
     reportContent,
     date,
     user: user._id
-  })
+  }
 
   if (request.file) {
     const result = await cloudinary.uploader.upload(request.file.path)
 
-    newReport.cloudinaryId = result.public_id
-    newReport.image = result.secure_url
+    report.cloudinaryId = result.public_id
+    report.image = result.secure_url
   }
+
+  const newReport = new Report(report)
 
   try {
     const savedReport = await newReport.save()
