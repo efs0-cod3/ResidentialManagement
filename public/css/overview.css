@@ -422,9 +422,7 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
 }
 
 @media all and (min-width: 400px) {
-  .status-container {
-    display: flex;
-  }
+  
 
   .report-modal {
     width: 100vw;
@@ -434,7 +432,7 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
   .report-modal form {
     position: relative;
     top: 150px;
-    left: 36%;
+    left: 100px;
     width: fit-content;
     max-width: 60%;
     transition: all ease-in-out 2s;
@@ -466,4 +464,42 @@ box-shadow: 1px 1px 2px rgba(79, 79, 79, 0.5);
   .date {
     display: block;
   }
+}
+
+
+
+@media all and (min-width: 500px) {
+
+.status-container {
+  display: flex;
+}
+
+.report-modal form {
+  left: 150px;
+}
+
+}
+
+@media all and (min-width: 650px) {
+
+.report-modal form {
+  left: 22%;
+}
+
+}
+
+@media all and (min-width: 800px) {
+
+.report-modal form {
+  left: 28%;
+}
+
+}
+
+@media all and (min-width: 900px) {
+
+.report-modal form {
+  left: 36%;
+}
+
 }
