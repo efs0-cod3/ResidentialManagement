@@ -42,6 +42,8 @@ Ex:
 
 - Roles available (sep - 1st - 2022)
 - Added image (optional) upload feature (Oct - 6th - 2022)
+- report updates (Oct - 15th - 2022)
+
 ## Continue development
 
 - Working on emailing
