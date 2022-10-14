@@ -117,7 +117,7 @@ usersRouter.post('/signup', (request, response) => {
               'success_msg',
               'You are now registered, and can log in'
             )
-            response.redirect('/users/login')
+            response.redirect('/login')
           })
           .catch((err) => console.error(err))
       }
