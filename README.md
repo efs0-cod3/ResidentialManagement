@@ -44,9 +44,9 @@ Ex:
 - Added image (optional) upload feature (Oct - 6th - 2022)
 ## Continue development
 
-- Working on emailing on report updates 
+- Working on emailing
 
 # Author
 
-- [Erick's Portfolio](https://erickfelix.netlify.app/)
+- [Erick's Portfolio](https://erickfelix.com/)
 - [Twitter](https://twitter.com/efs0_code)
